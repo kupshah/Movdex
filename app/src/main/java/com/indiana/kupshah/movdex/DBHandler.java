@@ -10,13 +10,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Kunaal on 3/7/2017.
  */
 
-public class DBHandler extends SQLiteOpenHelper {
+public class DBHandler extends SQLiteOpenHelper implements Serializable{
     // Database Version
     private static final int DATABASE_VERSION = 1;
     // Database Name
@@ -31,6 +32,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_NOTES = "notes";
     private static final String KEY_SEEN = "seen";
     private static final String KEY_WATCHLIST = "watchlist";
+    private static final long serialVersionUID = 1L;
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

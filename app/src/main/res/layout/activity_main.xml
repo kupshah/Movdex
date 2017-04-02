@@ -57,7 +57,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         style="@style/Widget.AppCompat.ListView"
-        android:id="@+id/MovieList" />
+        android:id="@+id/WatchList" />
 
     <Button
         android:text="Seen List"

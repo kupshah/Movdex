@@ -22,13 +22,10 @@ public class SeenList extends AppCompatActivity {
         Intent i = getIntent();
         ArrayList<Movie> seenList;
         //sets the list of seen and watched movies
-        seenList = (ArrayList<Movie>)i.getSerializableExtra("seenlist_movies");
-
-        for (Movie movie : seenList) {
-            System.out.println(movie.toString());
-        }
-        //MovieArrayAdapter myAdapter = new MovieArrayAdapter(this, seenList);
-        //SeenListView.setAdapter(myAdapter);
+        seenList = (ArrayList<Movie>)i.getSerializableExtra("seen_list");
+        if (seenList != null){
+        MovieArrayAdapter myAdapter = new MovieArrayAdapter(this, seenList);
+        SeenListView.setAdapter(myAdapter);}
     }
 
 
