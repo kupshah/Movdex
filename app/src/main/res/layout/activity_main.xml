@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.indiana.kupshah.movdex.MainActivity">
+
+    <Button
+        android:text="Add Movie"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/AddMovieText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onAddButtonClick"/>
+
+    <TextView
+        android:text="Watchlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/WatchlistText"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        tools:text="Watchlist"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif"
+        android:typeface="normal"
+        android:cursorVisible="false"
+        android:contextClickable="false"
+        android:clickable="false"
+        android:textAllCaps="false"
+        android:textStyle="normal|bold" />
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/SeenSearch"
+        android:orientation="horizontal"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/AddMovieText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/SeenSearch"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        style="@style/Widget.AppCompat.ListView"
+        android:id="@+id/MovieList" />
+
+    <Button
+        android:text="Seen List"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/SeenListTransition"
+        android:onClick="onSeenButtonClick"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/AddMovieText"
+        android:layout_toStartOf="@+id/AddMovieText" />
+
+</RelativeLayout>
