@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Movdex</string>
+    <string name="title_activity_display_info">DisplayInfo</string>
 </resources>

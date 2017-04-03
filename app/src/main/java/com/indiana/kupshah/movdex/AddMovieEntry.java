@@ -20,13 +20,16 @@ public class AddMovieEntry extends AppCompatActivity {
     }
 
 
-
+    //transition to WatchList activity where list of movies that are on the watchlist will
+    //appear in ListView
     public void onWatchlistButtonClick(View v){
         Intent myIntent = new Intent(AddMovieEntry.this,MainActivity.class);
         myIntent.putExtra("watch_list", movdexDB.getWatchlistMovies());
         startActivity(myIntent);
     }
 
+    //transition to SeenList activity where list of movies that have been seen will
+    //appear in ListView
     public void onSeenButtonClick(View v){
         Intent myIntent = new Intent(AddMovieEntry.this,SeenList.class);
         myIntent.putExtra("seen_list", movdexDB.getSeenMovies());
