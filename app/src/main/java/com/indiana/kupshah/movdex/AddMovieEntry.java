@@ -25,6 +25,7 @@ public class AddMovieEntry extends AppCompatActivity {
     public void onWatchlistButtonClick(View v){
         Intent myIntent = new Intent(AddMovieEntry.this,MainActivity.class);
         myIntent.putExtra("watch_list", movdexDB.getWatchlistMovies());
+        myIntent.putExtra("seen_list", movdexDB.getSeenMovies());
         startActivity(myIntent);
     }
 
@@ -33,6 +34,7 @@ public class AddMovieEntry extends AppCompatActivity {
     public void onSeenButtonClick(View v){
         Intent myIntent = new Intent(AddMovieEntry.this,SeenList.class);
         myIntent.putExtra("seen_list", movdexDB.getSeenMovies());
+        myIntent.putExtra("watch_list", movdexDB.getWatchlistMovies());
         startActivity(myIntent);
     }
 

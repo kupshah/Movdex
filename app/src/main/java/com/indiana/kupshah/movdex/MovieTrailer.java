@@ -41,6 +41,13 @@ public class MovieTrailer extends YouTubeBaseActivity implements YouTubePlayer.O
         //current hard coded id links to trailer for Valerian and the City of a Thousand Planets
         this.videoID = "NNrK7xVG3PM";
 
+        APIReader reader = new APIReader();
+        try {
+            String movieId = reader.getIDFromTitle(m.getmMovieTitle());
+            this.videoID = reader.getTrailerFromID(movieId);
+        }
+        catch(Exception e){System.out.println("Could not find movie with title" + m.getmMovieTitle());}
+
         //gets YoutubePlayerView view from XML layout
         //Initialize YouTubePlayerView
         youTubePlayer = (YouTubePlayerView)findViewById(R.id.youtubePlayer);

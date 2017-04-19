@@ -13,6 +13,7 @@ public class SeenList extends AppCompatActivity {
 
     private DBHandler movdexDB = new DBHandler(this);
     private ArrayList<Movie> seenList;
+    private ArrayList<Movie> watchlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class SeenList extends AppCompatActivity {
 
         //gets the list of seen movies
         seenList = (ArrayList<Movie>)i.getSerializableExtra("seen_list");
+
+        watchlist = (ArrayList<Movie>)i.getSerializableExtra("watch_list");
 
         //populates the listview with seen movies if seenList is not null
         if (seenList != null){
@@ -50,6 +53,8 @@ public class SeenList extends AppCompatActivity {
     //transition to MainActivity which displays the watchlist
     public void onWatchlistButtonClick(View v){
         Intent myIntent = new Intent(SeenList.this,MainActivity.class);
+        myIntent.putExtra("watch_list", watchlist);
+        myIntent.putExtra("seen_list", seenList);
         startActivity(myIntent);
     }
 

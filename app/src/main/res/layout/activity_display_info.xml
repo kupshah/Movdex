@@ -23,16 +23,6 @@
         android:layout_alignParentStart="true"
         android:textStyle="normal|bold" />
 
-    <Button
-        android:text="Play Trailer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="101dp"
-        android:onClick="onTrailerButtonClick"
-        android:id="@+id/playTrailer" />
-
     <TextView
         android:text="Seen At/Found at:"
         android:layout_width="wrap_content"
@@ -105,4 +95,15 @@
         android:layout_below="@+id/title"
         android:layout_alignLeft="@+id/title"
         android:layout_alignStart="@+id/title" />
+
+    <Button
+        android:text="Play Trailer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onTrailerButtonClick"
+        android:id="@+id/playTrailer"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp" />
+
 </RelativeLayout>
