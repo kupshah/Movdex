@@ -21,7 +21,7 @@ public class MovieTrailer extends YouTubeBaseActivity implements YouTubePlayer.O
     YouTubePlayer.OnInitializedListener onInitializedListener;
 
     private String api;
-    private String videoID;
+    private String videoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +39,24 @@ public class MovieTrailer extends YouTubeBaseActivity implements YouTubePlayer.O
         //a class not an activity
         //method call will look like: this.videoID = JSONparser.getYoutubeID(Movie m)
         //current hard coded id links to trailer for Valerian and the City of a Thousand Planets
-        this.videoID = "NNrK7xVG3PM";
+        this.videoPath = "NNrK7xVG3PM";
 
         APIReader reader = new APIReader();
+        String movieID = "";
         try {
-            String movieId = reader.getIDFromTitle(m.getmMovieTitle());
-            this.videoID = reader.getTrailerFromID(movieId);
+            movieID = reader.getIDFromTitle(m.getmMovieTitle());
         }
-        catch(Exception e){System.out.println("Could not find movie with title" + m.getmMovieTitle());}
+        catch (Exception e){
+            System.out.println("Failed at getting ID");
+        }
+
+        try {
+            videoPath = reader.getTrailerFromID(movieID);
+        }
+        catch(Exception e){System.out.println("failed to g et trailer path");
+        }
+
+
 
         //gets YoutubePlayerView view from XML layout
         //Initialize YouTubePlayerView
@@ -60,7 +70,7 @@ public class MovieTrailer extends YouTubeBaseActivity implements YouTubePlayer.O
         youTubePlayer.setPlaybackEventListener(pel);
 
         if(!b) {
-            youTubePlayer.loadVideo(videoID);
+            youTubePlayer.loadVideo(videoPath);
         }
 
     }
