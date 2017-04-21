@@ -185,18 +185,6 @@
 
     <EditText
         android:layout_height="wrap_content"
-        android:id="@+id/RecText"
-        android:textSize="16sp"
-        android:inputType="text"
-        android:layout_width="197dp"
-        tools:text="Who recommended this?"
-        android:layout_alignBaseline="@+id/AddRecommend"
-        android:layout_alignBottom="@+id/AddRecommend"
-        android:layout_toRightOf="@+id/AddRecommend"
-        android:layout_toEndOf="@+id/AddRecommend" />
-
-    <EditText
-        android:layout_height="wrap_content"
         android:id="@+id/FoundText"
         android:layout_width="262dp"
         android:textSize="16sp"
@@ -207,16 +195,17 @@
         android:layout_alignRight="@+id/TitleText"
         android:layout_alignEnd="@+id/TitleText" />
 
-    <Button
-        android:text="Select"
-        android:layout_width="wrap_content"
+    <EditText
         android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
-        android:id="@+id/selectButton"
-        android:onClick="onSelectButtonClick"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/addtoWatchlist"
-        android:layout_alignStart="@+id/addtoWatchlist" />
+        android:id="@+id/RecText"
+        android:textSize="16sp"
+        android:inputType="text"
+        android:layout_width="197dp"
+        tools:text="Who recommended this?"
+        android:layout_alignBaseline="@+id/AddRecommend"
+        android:layout_alignBottom="@+id/AddRecommend"
+        android:layout_toRightOf="@+id/AddRecommend"
+        android:layout_toEndOf="@+id/AddRecommend" />
 
 </RelativeLayout>
 

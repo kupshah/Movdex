@@ -2,6 +2,7 @@ package com.indiana.kupshah.movdex;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -24,9 +25,15 @@ public class MovieTrailer extends YouTubeBaseActivity implements YouTubePlayer.O
     private String videoPath;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_trailer);
+
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
         Intent i = getIntent();
         Movie m = (Movie)i.getSerializableExtra("movie");
 
@@ -45,18 +52,22 @@ public class MovieTrailer extends YouTubeBaseActivity implements YouTubePlayer.O
         String movieID = "";
         try {
             movieID = reader.getIDFromTitle(m.getmMovieTitle());
+            //System.out.println(movieID);
+            Toast.makeText(this, movieID, Toast.LENGTH_LONG ).show();
         }
         catch (Exception e){
-            System.out.println("Failed at getting ID");
+            Toast.makeText(this, "Failed to get ID" + e.toString(), Toast.LENGTH_LONG ).show();
         }
 
         try {
             videoPath = reader.getTrailerFromID(movieID);
+            //System.out.println(videoPath);
+            Toast.makeText(this, videoPath, Toast.LENGTH_LONG ).show();
         }
-        catch(Exception e){System.out.println("failed to g et trailer path");
+        catch(Exception e) {
+            //System.out.println("failed to g et trailer path" + e.toString());
+            Toast.makeText(this, "Failed to get trailer" + e.toString(), Toast.LENGTH_LONG ).show();
         }
-
-
 
         //gets YoutubePlayerView view from XML layout
         //Initialize YouTubePlayerView

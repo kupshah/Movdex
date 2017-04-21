@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import java.util.ArrayList;
-
 public class AddMovieEntry extends AppCompatActivity {
 
     DBHandler movdexDB = new DBHandler(this);
@@ -60,11 +58,4 @@ public class AddMovieEntry extends AppCompatActivity {
         movdexDB.addMovie(movie);
     }
 
-    public void onSelectButtonClick(View v){
-        ArrayList<Movie> seenList = movdexDB.getWatchlistMovies();
-        for (Movie m : seenList) {
-        System.out.println(m.toString());
-        }
-
-    }
 }

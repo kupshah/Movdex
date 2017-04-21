@@ -9,5 +9,5 @@ public class TmdbAPI {
 
     private static final String API_KEY = "07cd671663902a29a58a82640635b99b";
     
-    public String getAPI(){return API_KEY;}
+    public static String getAPI(){return API_KEY;}
 }

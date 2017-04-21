@@ -20,7 +20,7 @@ import java.nio.charset.Charset;
 //has methods for getting movie id, youtube trailer path, image path, and plot description
 public class APIReader {
 
-    private String api = new TmdbAPI().getAPI();
+    private String api = TmdbAPI.getAPI();
 
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
