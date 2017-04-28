@@ -74,6 +74,7 @@ public class SeenList extends AppCompatActivity {
         for (Movie m : seenList){
             messageList += m.getmMovieTitle() + "\n";
         }
+        Toast.makeText(this, "Seen list message created", Toast.LENGTH_SHORT).show();
 
 
         Intent emailIntent = new Intent(Intent.ACTION_SEND);

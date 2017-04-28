@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.InputStream;
 
@@ -57,7 +58,10 @@ public class DisplayInfo extends AppCompatActivity {
         try {
             cast.setText(reader.getCastFromID(reader.getIDFromTitle(m.getmMovieTitle())));
         }
-        catch (Exception e) {cast.setText("cast not found");}
+        catch (Exception e) {
+            cast.setText("Cannot find cast for " + m.getmMovieTitle());
+            Toast.makeText(this, "Cannot find cast for " + m.getmMovieTitle(), Toast.LENGTH_SHORT).show();
+        }
 
         String imageURL = "";
         try {
@@ -67,7 +71,7 @@ public class DisplayInfo extends AppCompatActivity {
                     .execute(imageURL);
         }
         catch (Exception e) {
-            System.out.println("cannot find image");
+            Toast.makeText(this, "Cannot find movie poster for " + m.getmMovieTitle(), Toast.LENGTH_SHORT).show();;
         }
 
 

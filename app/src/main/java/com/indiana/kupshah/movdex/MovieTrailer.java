@@ -66,7 +66,7 @@ public class MovieTrailer extends YouTubeBaseActivity implements YouTubePlayer.O
         }
         catch(Exception e) {
             //System.out.println("failed to g et trailer path" + e.toString());
-            Toast.makeText(this, "Failed to get trailer" + e.toString(), Toast.LENGTH_LONG ).show();
+            Toast.makeText(this, "Failed to get trailer for " + m.getmMovieTitle(), Toast.LENGTH_LONG ).show();
         }
 
         //gets YoutubePlayerView view from XML layout
