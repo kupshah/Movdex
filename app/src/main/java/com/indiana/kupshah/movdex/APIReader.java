@@ -55,6 +55,25 @@ public class APIReader {
         return id;
     }
 
+    //returns url for movie's poster
+    public String getPosterURLFromTitle(String title)  throws IOException, JSONException {
+        String urlTitle = title.replace(" ", "+");
+        JSONObject json = readJsonFromUrl("http://api.themoviedb.org/3/search/movie?api_key=" + api +"&query=" + urlTitle);
+        JSONArray results = (JSONArray)json.get("results");
+        JSONObject first = (JSONObject)results.get(0);
+        String path = first.get("poster_path").toString();
+        return "http://image.tmdb.org/t/p/w300" + path;
+    }
+
+    //returns movie's plot
+    public String getPlotFromTitle(String title)  throws IOException, JSONException {
+        String urlTitle = title.replace(" ", "+");
+        JSONObject json = readJsonFromUrl("http://api.themoviedb.org/3/search/movie?api_key=" + api +"&query=" + urlTitle);
+        JSONArray results = (JSONArray)json.get("results");
+        JSONObject first = (JSONObject)results.get(0);
+        String plot = first.get("overview").toString();
+        return plot;
+    }
 
     //uses TMDB id to find movie's youtube trailer path
     public String getTrailerFromID(String id) throws IOException, JSONException{
@@ -76,25 +95,40 @@ public class APIReader {
         return trailerKey;
     }
 
-    //returns url for movie's poster
-    public String getPosterURLFromTitle(String title)  throws IOException, JSONException {
-        String urlTitle = title.replace(" ", "+");
-        JSONObject json = readJsonFromUrl("http://api.themoviedb.org/3/search/movie?api_key=" + api +"&query=" + urlTitle);
-        JSONArray results = (JSONArray)json.get("results");
-        JSONObject first = (JSONObject)results.get(0);
-        String path = first.get("poster_path").toString();
-        return "http://image.tmdb.org/t/p/w150" + path;
-    }
 
-    //returns movie's plot
-    public String getPlotFromTitle(String title)  throws IOException, JSONException {
-        String urlTitle = title.replace(" ", "+");
-        JSONObject json = readJsonFromUrl("http://api.themoviedb.org/3/search/movie?api_key=" + api +"&query=" + urlTitle);
-        JSONArray results = (JSONArray)json.get("results");
-        JSONObject first = (JSONObject)results.get(0);
-        String plot = first.get("overview").toString();
-        return plot;
-    }
+    //uses TMDB id to find movie's top 5 cast
+    public String getCastFromID(String id) throws IOException, JSONException{
 
+        JSONObject json = readJsonFromUrl("http://api.themoviedb.org/3/movie/" + id + "/casts?api_key=" + api);
+        JSONArray results = (JSONArray)json.get("cast");
+        String castString = "";
+
+        if (results.length() >= 5){
+            for (int i = 0; i < 5; i++)
+            {
+                JSONObject result = (JSONObject)results.get(i);
+                castString += result.get("name").toString() + " | ";
+                castString += result.get("character").toString() + "\n";
+            }
+        }
+
+        else {
+            for (int i = 0; i < results.length(); i++){
+                JSONObject result = (JSONObject)results.get(i);
+                castString += result.get("name").toString() + " | ";
+                castString += result.get("character").toString() + "\n";
+            }
+        }
+        //while (isTrailer == false && resultIndex < results.length()){
+            //JSONObject result = (JSONObject)results.get(resultIndex);
+            //if (result.get("type").toString().equals("Trailer")){
+                //castString = result.get("key").toString();
+                //isTrailer = true;
+            //}
+            //else {resultIndex += 1;}
+        //}
+        System.out.println(castString);
+        return castString;
+    }
 }
 

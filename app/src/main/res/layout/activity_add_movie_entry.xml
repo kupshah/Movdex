@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_add_movie_info"
     android:layout_width="match_parent"
@@ -8,32 +8,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.indiana.kupshah.movdex.AddMovieEntry">
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/addtoWatchlist"
-        android:layout_toRightOf="@+id/addtoWatchlist"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:id="@+id/SeenCheck"
-        android:layout_toLeftOf="@+id/AddMovieText"
-        android:layout_toStartOf="@+id/AddMovieText"
-        android:layout_alignTop="@+id/addtoWatchlist" />
 
-    <TextView
-        android:text="Seen? "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:textSize="16sp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp"
-        tools:text="Seen? " />
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,166 +27,173 @@
         android:textSize="30sp"
         android:textStyle="normal|bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </RelativeLayout>
 
-    <TextView
-        android:text="Movie Title: "
+    <Space
+        android:layout_width="15dp"
+        android:layout_height="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Movie Title: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/AddTitle"
+            tools:text="Movie Title: "
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:id="@+id/TitleText"
+            android:layout_width="250dp"
+            android:textSize="16dp"
+            android:inputType="textMultiLine"
+            android:text="Enter Movie's title"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Recommended By: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AddTitle"
+            android:id="@+id/AddRecommend"
+            android:textSize="16sp"
+            tools:text="Recommended By: " />
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:id="@+id/RecText"
+            android:textSize="16sp"
+            android:inputType="textMultiLine"
+            android:layout_width="197dp"
+            android:text="Who recommended this?" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/AddMovieText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="28dp"
-        android:id="@+id/AddTitle"
-        tools:text="Movie Title: "
-        android:textSize="16sp" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Found at: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textSize="16sp"
+            tools:text="Found at: " />
 
-    <TextView
-        android:text="Recommended By: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/AddTitle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp"
-        android:id="@+id/AddRecommend"
-        android:textSize="16sp"
-        tools:text="Recommended By: " />
+        <EditText
+            android:layout_height="wrap_content"
+            android:id="@+id/FoundText"
+            android:layout_width="262dp"
+            android:textSize="16sp"
+            android:inputType="text"
+            android:text="Netflix? Amazon? Theater?..." />
+        </LinearLayout>
 
-    <TextView
-        android:text="Found at: "
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/AddRecommend"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="16sp"
-        tools:text="Found at: " />
+        android:orientation="vertical">
+        <TextView
+            android:text="Notes: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Notes"
+            android:textSize="16sp"
+            tools:text="Notes: " />
 
-    <TextView
-        android:text="Watchlist?"
-        android:layout_height="wrap_content"
-        android:id="@+id/addtoWatchlist"
-        android:textSize="16sp"
-        tools:text="Watchlist?"
-        android:layout_alignBaseline="@+id/textView8"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_alignLeft="@+id/AddMovieText"
-        android:layout_alignStart="@+id/AddMovieText"
-        android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp"
-        android:layout_width="75dp" />
+        <EditText
+            android:text="Add Notes here"
+            android:id="@+id/NotesTextView"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:gravity="top"
+            android:textSize="16sp" />
+        </LinearLayout>
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/WatchCheck"
-        android:layout_alignBaseline="@+id/addtoWatchlist"
-        android:layout_alignBottom="@+id/addtoWatchlist"
-        android:layout_toRightOf="@+id/addtoWatchlist"
-        android:layout_toEndOf="@+id/addtoWatchlist"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Watchlist?"
+            android:layout_height="wrap_content"
+            android:id="@+id/addtoWatchlist"
+            android:textSize="16sp"
+            tools:text="Watchlist?"
+            android:layout_width="wrap_content" />
 
-    <TextView
-        android:text="Notes: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:id="@+id/Notes"
-        android:textSize="16sp"
-        android:layout_below="@+id/WatchCheck"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        tools:text="Notes: " />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/WatchCheck" />
 
-    <EditText
-        android:text="Add Notes here"
-        android:id="@+id/NotesTextView"
-        android:layout_height="wrap_content"
-        android:layout_width="200dp"
-        android:inputType="text"
-        android:layout_below="@+id/Notes"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/FoundText"
-        android:layout_alignEnd="@+id/FoundText"
-        android:textSize="16sp" />
+        <TextView
+            android:text="Seen? "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView8"
+            android:textSize="16sp"
+            tools:text="Seen? " />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/SeenCheck" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="Add Entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Add"
+            android:fontFamily="sans-serif"
+            android:textSize="20sp"
+            android:onClick="onAddButtonClick"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </RelativeLayout>
 
     <Button
-        android:text="Add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/NotesTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:id="@+id/Add"
-        tools:text="Add"
-        android:fontFamily="sans-serif"
-        android:textSize="20sp"
-        android:onClick="onAddButtonClick" />
-
-    <Button
-        android:text="Watchlist"
+        android:text="View Watchlist"
         android:id="@+id/button2"
         android:layout_height="40dp"
-        tools:text="Watchlist"
-        android:layout_width="90dp"
+        android:layout_width="match_parent"
         android:textSize="12sp"
-        android:fontFamily="sans-serif"
-        android:layout_alignBottom="@+id/Add"
-        android:layout_toLeftOf="@+id/addtoWatchlist"
-        android:layout_toStartOf="@+id/addtoWatchlist"
+        android:fontFamily="sans-serif-medium"
         android:onClick="onWatchlistButtonClick" />
 
     <Button
-        android:text="Seen"
-        android:layout_width="90dp"
+        android:text="View Seenlist"
+        android:layout_width="match_parent"
+        android:gravity="right"
         android:layout_height="40dp"
         android:id="@+id/button3"
         android:fontFamily="sans-serif-medium"
         android:textSize="12sp"
-        android:layout_alignBottom="@+id/Add"
-        android:layout_alignRight="@+id/NotesTextView"
-        android:layout_alignEnd="@+id/NotesTextView"
-        android:onClick="onSeenButtonClick" />
+        android:onClick="onSeenButtonClick"
+        android:textAlignment="center" />
 
-    <EditText
-        android:layout_height="wrap_content"
-        android:id="@+id/TitleText"
-        android:layout_width="250dp"
-        android:textSize="16dp"
-        android:inputType="text"
-        tools:text="Who recommended this?"
-        android:layout_alignBaseline="@+id/AddTitle"
-        android:layout_alignBottom="@+id/AddTitle"
-        android:layout_toRightOf="@+id/AddTitle"
-        android:layout_toEndOf="@+id/AddTitle" />
 
-    <EditText
-        android:layout_height="wrap_content"
-        android:id="@+id/FoundText"
-        android:layout_width="262dp"
-        android:textSize="16sp"
-        android:inputType="text"
-        tools:text="Netflix? Amazon? ..."
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_alignRight="@+id/TitleText"
-        android:layout_alignEnd="@+id/TitleText" />
-
-    <EditText
-        android:layout_height="wrap_content"
-        android:id="@+id/RecText"
-        android:textSize="16sp"
-        android:inputType="text"
-        android:layout_width="197dp"
-        tools:text="Who recommended this?"
-        android:layout_alignBaseline="@+id/AddRecommend"
-        android:layout_alignBottom="@+id/AddRecommend"
-        android:layout_toRightOf="@+id/AddRecommend"
-        android:layout_toEndOf="@+id/AddRecommend" />
-
-</RelativeLayout>
+</LinearLayout>
 

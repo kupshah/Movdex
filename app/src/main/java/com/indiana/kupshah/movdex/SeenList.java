@@ -1,11 +1,13 @@
 package com.indiana.kupshah.movdex;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -62,5 +64,32 @@ public class SeenList extends AppCompatActivity {
     public void onAddButtonClick(View v){
         Intent myIntent = new Intent(SeenList.this,AddMovieEntry.class);
         startActivity(myIntent);
+    }
+
+    //opens email with Seenlist
+    public void onEmailClick(View v){
+        String messageList = "";
+
+        //adds each movie title as to messageList, separated by new lines
+        for (Movie m : seenList){
+            messageList += m.getmMovieTitle() + "\n";
+        }
+
+
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"kupshah@indiana.edu","kunaalshah20@gmail.com"});
+        emailIntent.putExtra(Intent.EXTRA_TEXT, messageList);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "List of movies I've seen");
+
+        try {
+
+            startActivity(Intent.createChooser(emailIntent,"Send seenlist via:"));
+        }
+
+        catch (Exception e) {
+            Toast.makeText(this, "Failed sending Email", Toast.LENGTH_SHORT).show();
+        }
     }
 }
