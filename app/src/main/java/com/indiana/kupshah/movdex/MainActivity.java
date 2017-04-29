@@ -73,10 +73,12 @@ public class MainActivity extends AppCompatActivity {
         String messageList = "";
 
         //adds each movie title as to messageList, separated by new lines
-        for (Movie m : watchlist){
-            messageList += m.getmMovieTitle() + "\n";
+        if (watchlist != null) {
+            for (Movie m : watchlist) {
+                messageList += m.getmMovieTitle() + "\n";
+            }
+            Toast.makeText(this, "Watchlist message created", Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(this, "Watchlist message created", Toast.LENGTH_SHORT).show();
 
 
         Intent emailIntent = new Intent(Intent.ACTION_SEND);

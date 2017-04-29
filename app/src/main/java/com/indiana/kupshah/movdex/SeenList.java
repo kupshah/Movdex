@@ -71,9 +71,12 @@ public class SeenList extends AppCompatActivity {
         String messageList = "";
 
         //adds each movie title as to messageList, separated by new lines
-        for (Movie m : seenList){
-            messageList += m.getmMovieTitle() + "\n";
+        if (seenList != null) {
+            for (Movie m : seenList) {
+                messageList += m.getmMovieTitle() + "\n";
+            }
         }
+
         Toast.makeText(this, "Seen list message created", Toast.LENGTH_SHORT).show();
 
 
