@@ -34,6 +34,7 @@ public class DBHandler extends SQLiteOpenHelper implements Serializable{
     private static final String KEY_WATCHLIST = "watchlist";
     private static final long serialVersionUID = 1L;
 
+
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -162,6 +163,7 @@ public class DBHandler extends SQLiteOpenHelper implements Serializable{
             values.put(KEY_WATCHLIST, 1);
         }
         else {values.put(KEY_WATCHLIST,0);}
+
         // updating row
         return db.update(MOVIE_TABLE, values, KEY_ID + " = ?",
                 new String[]{String.valueOf(m.getmMovieTitle())});

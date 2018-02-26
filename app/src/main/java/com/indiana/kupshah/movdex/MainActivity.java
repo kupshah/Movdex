@@ -18,7 +18,6 @@ import static com.indiana.kupshah.movdex.R.id.WatchList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DBHandler movedexDB = new DBHandler(this);
     private ArrayList<Movie> watchlist;
     private ArrayList<Movie> seenlist;
 

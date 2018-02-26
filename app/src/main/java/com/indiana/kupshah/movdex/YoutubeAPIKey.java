@@ -6,7 +6,7 @@ package com.indiana.kupshah.movdex;
 
 //Contains api key for youtube android player
 public class YoutubeAPIKey {
-    private static final String API_KEY = "AIzaSyA-9i49ODGscjHNOHuXGcWMTf37FXOZxK4";
+    private static final String API_KEY = "0000000000000000000000000000";
 
     public static String getApiKey(){return API_KEY;}
 }
